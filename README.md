@@ -1,1 +1,1 @@
-# haproxy
+# haproxy-ingress-controller
