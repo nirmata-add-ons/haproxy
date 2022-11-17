@@ -3,7 +3,6 @@
 [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) controller
 implementation for [HAProxy](http://www.haproxy.org/) loadbalancer.
 
-[![build](https://img.shields.io/github/workflow/status/jcmoraisjr/haproxy-ingress/build?logo=github)](https://github.com/jcmoraisjr/haproxy-ingress/actions/workflows/build.yaml) [![helm](https://img.shields.io/badge/helm%20chart-ready-blue?logo=helm)](https://artifacthub.io/packages/helm/haproxy-ingress/haproxy-ingress)
 
 HAProxy Ingress is a Kubernetes ingress controller: it configures a HAProxy instance
 to route incoming requests from an external network to the in-cluster applications.
