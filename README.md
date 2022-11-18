@@ -54,10 +54,10 @@ kubectl --kubeconfig=$kubeconfig get sa -n $namespace | grep -i $2 | awk {'print
 kubectl --kubeconfig=$kubeconfig get role -n $namespace | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete role <br />
 kubectl --kubeconfig=$kubeconfig get rolebinding -n $namespace | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete rolebinding <br />
 kubectl --kubeconfig=$kubeconfig get cm -n $namespace | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete cm <br />
-kubectl --kubeconfig=$kubeconfig get deploy -n $namespace | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete cm <br />
-kubectl --kubeconfig=$kubeconfig get svc -n $namespace | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete cm <br />
-kubectl --kubeconfig=$kubeconfig get deploy -n $namespace | grep -i ingress-default-backend | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete cm <br />
-kubectl --kubeconfig=$kubeconfig get svc -n $namespace | grep -i ingress-default-backend | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete cm <br />
+kubectl --kubeconfig=$kubeconfig get deploy -n $namespace | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete deploy <br />
+kubectl --kubeconfig=$kubeconfig get svc -n $namespace | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete svc <br />
+kubectl --kubeconfig=$kubeconfig get deploy -n $namespace | grep -i ingress-default-backend | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete deploy <br />
+kubectl --kubeconfig=$kubeconfig get svc -n $namespace | grep -i ingress-default-backend | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete svc <br />
 
 
 <br>
