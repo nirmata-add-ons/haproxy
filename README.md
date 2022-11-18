@@ -59,8 +59,8 @@ kubectl --kubeconfig=$kubeconfig get svc -n $namespace | grep -i $2 | awk {'prin
 kubectl --kubeconfig=$kubeconfig get deploy -n $namespace | grep -i ingress-default-backend | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete deploy <br />
 kubectl --kubeconfig=$kubeconfig get svc -n $namespace | grep -i ingress-default-backend | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete svc <br />
 
-
 <br>
+
 **You can set values as below:** <br>
 name=haproxy <br>
 namespace=ingress-haproxy <br>
