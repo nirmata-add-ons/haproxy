@@ -23,25 +23,19 @@ Updates made to the cluster are applied on the fly to the HAProxy instance.
 |-------------------|--------------------------|
 | [`v0.13.6`]       |       `1.19+`            |                 
 
+
 **Steps to delete haproxy:**
-#kubeconfig file location of cluster
+
+
 kubeconfig=$1
-#name value is haproxy
 name=$2
-# namspace is ingress-haproxy
 namespace=$3
 kubectl --kubeconfig=$kubeconfig  get crd | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig delete crd
-sleep 2
 kubectl --kubeconfig=$kubeconfig  get clusterrole | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig delete clusterrole
-sleep 2
 kubectl --kubeconfig=$kubeconfig get clusterrolebinding | grep -i $2 |  awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig delete clusterrolebinding
-sleep 2
 kubectl --kubeconfig=$kubeconfig get mutatingwebhookconfigurations | grep -i $2 |  awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig delete mutatingwebhookconfigurations
-sleep 2
 kubectl --kubeconfig=$kubeconfig get validatingwebhookconfigurations | grep -i $2 |  awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig delete validatingwebhookconfigurations
-sleep 2
 kubectl --kubeconfig=$kubeconfig get sa -n $namespace | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete sa
-sleep 2
 kubectl --kubeconfig=$kubeconfig get role -n $namespace | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete role 
 kubectl --kubeconfig=$kubeconfig get rolebinding -n $namespace | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete rolebinding
-kubectl --kubeconfig=$kubeconfig get cm -n $namespace | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete cm 
+kubectl --kubeconfig=$kubeconfig get cm -n $namespace | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete cm
