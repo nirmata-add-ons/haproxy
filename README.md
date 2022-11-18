@@ -23,9 +23,24 @@ Updates made to the cluster are applied on the fly to the HAProxy instance.
 |-------------------|--------------------------|
 | [`v0.13.6`]       |       `1.19+`            |                 
 
+**Steps to Backup existing haproxy:**
+<br />
+mkdir backup-ingrees <br />
+cd backup-ingrees <br />
+<br />
+kubectl get cm haproxy-configmap -oyaml -n ingress-haproxy > haproxy-configmap.yaml <br />
+kubectl get sa haproxy-ingress-serviceaccount -oyaml -n ingress-haproxy > haproxy-ingress-serviceaccount.yaml <br />
+kubectl get clusterrole haproxy-ingress-clusterrole -oyaml -n ingress-haproxy > haproxy-ingress-clusterrole.yaml <br />
+kubectl get role haproxy-ingress-role -oyaml -n ingress-haproxy > haproxy-ingress-role.yaml <br />
+kubectl get rolebinding haproxy-ingress-role-nisa-binding -oyaml -n ingress-haproxy > haproxy-ingress-role-nisa-binding.yaml <br />
+kubectl get clusterrolebinding haproxy-ingress-clusterrole-nisa-binding -oyaml -n ingress-haproxy > haproxy-ingress-clusterrole-nisa-binding.yaml <br />
+kubectl get deploy haproxy-ingress -oyaml -n ingress-haproxy > haproxy-ingress-deploy.yaml <br />
+kubectl get deploy ingress-default-backend -n ingress-haproxy -oyaml > ingress-default-backend.yaml <br />
+kubectl get svc ingress-default-backend -n ingress-haproxy -oyaml > ingress-default-backend-svc.yaml <br />
+kubectl get svc haproxy-ingress -n ingress-haproxy -oyaml > haproxy-ingress-svc.yaml <br />
+<br />
 
 **Steps to delete haproxy:**
-
 
 kubeconfig=$1 <br />
 name=$2 <br />
@@ -39,8 +54,13 @@ kubectl --kubeconfig=$kubeconfig get sa -n $namespace | grep -i $2 | awk {'print
 kubectl --kubeconfig=$kubeconfig get role -n $namespace | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete role <br />
 kubectl --kubeconfig=$kubeconfig get rolebinding -n $namespace | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete rolebinding <br />
 kubectl --kubeconfig=$kubeconfig get cm -n $namespace | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete cm <br />
+kubectl --kubeconfig=$kubeconfig get deploy -n $namespace | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete cm <br />
+kubectl --kubeconfig=$kubeconfig get svc -n $namespace | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete cm <br />
+kubectl --kubeconfig=$kubeconfig get deploy -n $namespace | grep -i ingress-default-backend | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete cm <br />
+kubectl --kubeconfig=$kubeconfig get svc -n $namespace | grep -i ingress-default-backend | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete cm <br />
+
 
 <br>
-You can set values as below: <br>
+**You can set values as below:** <br>
 name=haproxy <br>
 namespace=ingress-haproxy <br>
