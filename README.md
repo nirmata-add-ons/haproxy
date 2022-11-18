@@ -30,12 +30,12 @@ Updates made to the cluster are applied on the fly to the HAProxy instance.
 kubeconfig=$1 <br />
 name=$2 <br />
 namespace=$3 <br />
-kubectl --kubeconfig=$kubeconfig  get crd | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig delete crd
-kubectl --kubeconfig=$kubeconfig  get clusterrole | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig delete clusterrole
-kubectl --kubeconfig=$kubeconfig get clusterrolebinding | grep -i $2 |  awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig delete clusterrolebinding
-kubectl --kubeconfig=$kubeconfig get mutatingwebhookconfigurations | grep -i $2 |  awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig delete mutatingwebhookconfigurations
-kubectl --kubeconfig=$kubeconfig get validatingwebhookconfigurations | grep -i $2 |  awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig delete validatingwebhookconfigurations
-kubectl --kubeconfig=$kubeconfig get sa -n $namespace | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete sa
-kubectl --kubeconfig=$kubeconfig get role -n $namespace | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete role 
-kubectl --kubeconfig=$kubeconfig get rolebinding -n $namespace | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete rolebinding
-kubectl --kubeconfig=$kubeconfig get cm -n $namespace | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete cm
+kubectl --kubeconfig=$kubeconfig  get crd | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig delete crd <br />
+kubectl --kubeconfig=$kubeconfig  get clusterrole | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig delete clusterrole <br />
+kubectl --kubeconfig=$kubeconfig get clusterrolebinding | grep -i $2 |  awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig delete clusterrolebinding <br />
+kubectl --kubeconfig=$kubeconfig get mutatingwebhookconfigurations | grep -i $2 |  awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig delete mutatingwebhookconfigurations <br />
+kubectl --kubeconfig=$kubeconfig get validatingwebhookconfigurations | grep -i $2 |  awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig delete validatingwebhookconfigurations <br />
+kubectl --kubeconfig=$kubeconfig get sa -n $namespace | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete sa <br />
+kubectl --kubeconfig=$kubeconfig get role -n $namespace | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete role <br />
+kubectl --kubeconfig=$kubeconfig get rolebinding -n $namespace | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete rolebinding <br />
+kubectl --kubeconfig=$kubeconfig get cm -n $namespace | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete cm <br />
