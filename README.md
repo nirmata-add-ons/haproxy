@@ -27,9 +27,9 @@ Updates made to the cluster are applied on the fly to the HAProxy instance.
 **Steps to delete haproxy:**
 
 
-kubeconfig=$1
-name=$2
-namespace=$3
+kubeconfig=$1 <br />
+name=$2 <br />
+namespace=$3 <br />
 kubectl --kubeconfig=$kubeconfig  get crd | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig delete crd
 kubectl --kubeconfig=$kubeconfig  get clusterrole | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig delete clusterrole
 kubectl --kubeconfig=$kubeconfig get clusterrolebinding | grep -i $2 |  awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig delete clusterrolebinding
