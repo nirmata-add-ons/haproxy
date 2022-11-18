@@ -39,3 +39,8 @@ kubectl --kubeconfig=$kubeconfig get sa -n $namespace | grep -i $2 | awk {'print
 kubectl --kubeconfig=$kubeconfig get role -n $namespace | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete role <br />
 kubectl --kubeconfig=$kubeconfig get rolebinding -n $namespace | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete rolebinding <br />
 kubectl --kubeconfig=$kubeconfig get cm -n $namespace | grep -i $2 | awk {'print $1'} | xargs kubectl --kubeconfig=$kubeconfig -n $namespace delete cm <br />
+
+<br>
+You can set values as below: <br>
+name=haproxy <br>
+namespace=ingress-haproxy <br>
