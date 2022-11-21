@@ -92,4 +92,6 @@ spec:
           name: sumo-fluentbit-config
           optional: false
         name: config-volume
+        hostPath:
+          path: /config-volume
 

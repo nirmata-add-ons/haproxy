@@ -28,7 +28,7 @@ spec:
       namespace: ingress-haproxy9
     spec:
       containers:
-      - image: gcr.io/google-containers/defaultbackend::1.0
+      - image: gcr.io/google-containers/defaultbackend:1.0
         imagePullPolicy: IfNotPresent
         name: ingress-default-backend
         ports:
