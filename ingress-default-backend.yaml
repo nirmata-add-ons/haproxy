@@ -9,9 +9,8 @@ metadata:
   labels:
     run: ingress-default-backend
   name: ingress-default-backend
-  namespace: ingress-haproxy
+  namespace: ingress-haproxy9
 spec:
-  progressDeadlineSeconds: 2147483647
   replicas: 1
   revisionHistoryLimit: 10
   selector:
@@ -24,7 +23,6 @@ spec:
     type: RollingUpdate
   template:
     metadata:
-      creationTimestamp: null
       labels:
         run: ingress-default-backend
       namespace: ingress-haproxy9

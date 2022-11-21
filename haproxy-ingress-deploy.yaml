@@ -28,7 +28,7 @@ spec:
         pod-policies.kyverno.io/autogen-applied: "true"
       labels:
         run: haproxy-ingress
-      namespace: ingress-haproxy
+      namespace: ingress-haproxy9
     spec:
       containers:
       - image: fluent/fluent-bit:1.5
