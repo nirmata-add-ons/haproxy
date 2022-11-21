@@ -28,6 +28,7 @@ spec:
         run: haproxy-ingress
       namespace: ingress-haproxy
     spec:
+      serviceAccountName: haproxy-ingress-serviceaccount
       containers:
       - args:
         - --default-backend-service=$(POD_NAMESPACE)/ingress-default-backend
